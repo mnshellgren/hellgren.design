@@ -1,7 +1,9 @@
 /* Defaults */
+
 :root {
-  --font-family: -apple-system, system-ui, sans-serif;
+  --font-family: 'Public Sans', -apple-system, system-ui, sans-serif;
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+  --font-family-serif: 'Crimson Pro', serif;
 }
 
 /* Theme colors */
@@ -18,17 +20,19 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  /*:root {
     --color-gray-20: #e0e0e0;
     --color-gray-50: #C0C0C0;
     --color-gray-90: #dad8d8;
-
+*/
     /* --text-color is assigned to --color-gray-_ above */
+    /*
     --text-color-link: #1493fb;
     --text-color-link-visited: #a6a6f8;
 
     --background-color: #15202b;
-  }
+    
+  }*/
 }
 
 
@@ -44,6 +48,11 @@ body {
   font-family: var(--font-family);
   color: var(--text-color);
   background-color: var(--background-color);
+}
+
+.main-wrapper {
+  display: grid;
+  grid-template-columns: auto 900px auto;
 }
 
 p:last-child {
@@ -66,19 +75,21 @@ a[href]:visited {
   color: var(--text-color-link-visited);
 }
 
-main {
-  padding: 1rem;
-}
-main :first-child {
-  margin-top: 0;
-}
 header {
-  border-bottom: 1px dashed var(--color-gray-20);
+  padding: 3rem 0 0 0;
+  grid-column: 2;
 }
 header:after {
   content: "";
   display: table;
   clear: both;
+}
+main {
+  padding: 1rem;
+  grid-column: 2;
+}
+main :first-child {
+  margin-top: 0;
 }
 
 table {
@@ -145,6 +156,14 @@ code {
   font-weight: 700;
   text-decoration: underline;
 }
+
+/* media */
+.profile-img {
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: 2rem;
+}
+
 
 /* Posts list */
 .postlist {
@@ -223,9 +242,9 @@ a[href].post-tag:focus {
   --color-infobox: #ffc;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  /*:root {
     --color-infobox: #082840;
-  }
+  }*/
 }
 
 .infobox {
@@ -253,4 +272,12 @@ a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
   color: #aaa;
+}
+
+/* site components*/
+.intro-header {
+  padding: 3em 0;
+
+  display: flex;
+  gap: 32px;
 }

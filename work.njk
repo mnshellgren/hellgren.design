@@ -1,0 +1,12 @@
+---
+layout: layouts/home.njk
+permalink: /work/
+eleventyNavigation:
+  key: Work
+  order: 3
+---
+
+<h1>Work i've done</h1>
+
+{% set caselist = collections.work %}
+{% include "caselist.njk" %}

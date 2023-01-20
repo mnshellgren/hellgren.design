@@ -1,0 +1,12 @@
+<ul reversed class="postlist" style="counter-reset: start-from {{ (caselistCounter or caselist.length) + 1 }}">
+{% for case in caselist | reverse %}
+  <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
+    <a href="{{ case.url | url }}" class="postlist-link">{% if case.data.title %}{{ case.data.title }}{% else %}<code>{{ case.url }}</code>{% endif %}</a>
+    <time class="postlist-date" datetime="{{ case.date | htmlDateString }}">{{ case.date | readableDate }}</time>
+    {% for tag in case.data.tags | filterTagList %}
+      {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+    {% endfor %}
+  </li>
+{% endfor %}
+</ul>

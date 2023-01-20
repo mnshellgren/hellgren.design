@@ -7,6 +7,20 @@ const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const Image = require("@11ty/eleventy-img");
+
+async function imageShortcode(src, alt, imgclass) {
+
+  let metadata = await Image(src, {
+    widths: [600],
+    formats: ["jpeg"]
+  });
+
+  let data = metadata.jpeg[metadata.jpeg.length - 1];
+  return `<img src="${data.url}" class="${imgclass}" alt="${alt}" loading="lazy" decoding="async">`;
+
+}
+
 
 module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
@@ -24,7 +38,7 @@ module.exports = function(eleventyConfig) {
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('dd LLL yyyy');
   });
 
   // Get the first `n` elements of a collection.
@@ -45,10 +59,12 @@ module.exports = function(eleventyConfig) {
   });
 
   function filterTagList(tags) {
-    return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+    return (tags || []).filter(tag => ["all", "nav", "post", "posts", "work", "case"].indexOf(tag) === -1);
   }
 
   eleventyConfig.addFilter("filterTagList", filterTagList)
+
+  eleventyConfig.addFilter('values', Object.values);
 
   // Create an array of all tags
   eleventyConfig.addCollection("tagList", function(collection) {
@@ -92,6 +108,15 @@ module.exports = function(eleventyConfig) {
     ui: false,
     ghostMode: false
   });
+
+  // add shortcodes
+  eleventyConfig.addAsyncShortcode("image", imageShortcode);
+
+  // add passthroughcopy
+  // Copy `css/fonts/` to `_site/css/fonts`
+  // Keeps the same directory structure.
+  eleventyConfig.addPassthroughCopy("fonts");
+
 
   return {
     // Control which files Eleventy will process

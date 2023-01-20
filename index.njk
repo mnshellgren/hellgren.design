@@ -4,11 +4,27 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-{% set maxPosts = collections.posts.length | min(3) %}
-<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+
+<div class="intro-header"> 
+  {% image "./src/images/profile.jpg", "photo of me", "profile-img" %}
+  <div>
+    <h1>Måns Hellgren</h1>
+
+    <p>I write about things i find worthy of reflection.</p>
+  </div>
+</div>
+
+
+
+
+    <h2 class="smalltext">Pinned</h2>
+{% set maxPosts = collections.posts.length | min(4) %}
+<h2 class="smalltext">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
+{% set caselist = collections.work | head(-3) %}
+{% set caselistCounter = collections.work | length %}
 {% include "postslist.njk" %}
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+<p>More posts can be found in <a href="{{ '/posts/' | url }}">the blog</a>.</p>
