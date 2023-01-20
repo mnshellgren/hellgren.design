@@ -50,6 +50,10 @@ body {
   background-color: var(--background-color);
 }
 
+p {
+  font-weight: 300;
+}
+
 .main-wrapper {
   display: grid;
   grid-template-columns: auto 900px auto;
@@ -87,9 +91,6 @@ header:after {
 main {
   padding: 1rem;
   grid-column: 2;
-}
-main :first-child {
-  margin-top: 0;
 }
 
 table {
@@ -276,7 +277,7 @@ a[href].direct-link:focus:visited,
 
 /* site components*/
 .intro-header {
-  padding: 3em 0;
+  margin: 3em 0 2em 0;
 
   display: flex;
   gap: 32px;

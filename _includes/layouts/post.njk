@@ -2,7 +2,10 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
+<div class="intro-header">
+    <h1>{{ title }}</h1>
+</div>
+
 
 <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
 {%- for tag in tags | filterTagList %}
