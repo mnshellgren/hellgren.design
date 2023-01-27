@@ -8,18 +8,14 @@ eleventyNavigation:
 <div class="intro-header"> 
   {% image "./src/images/profile.jpg", "photo of me", "profile-img" %}
   <div>
-    <h1>Måns Hellgren</h1>
+    <h1 class="m-0 text-md-end">Måns Hellgren</h1>
 
-    <p>I write about things i find worthy of reflection.</p>
+    <p class="text-md-end mt-s">UX designer with frontend development flair.</p>
   </div>
 </div>
 
-
-
-
-    <h2 class="smalltext">Pinned</h2>
 {% set maxPosts = collections.posts.length | min(4) %}
-<h2 class="smalltext">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
+<h2 class="fs-p fw-normal mt-l">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
@@ -27,4 +23,4 @@ eleventyNavigation:
 {% set caselistCounter = collections.work | length %}
 {% include "postslist.njk" %}
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the blog</a>.</p>
+<p class="fs-root">More writings can be found in <a href="{{ '/posts/' | url }}">reflections</a>.</p>
