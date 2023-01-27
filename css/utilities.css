@@ -1,0 +1,51 @@
+
+/* Utilities */
+.m-0 {
+  margin: 0;
+}
+.mb-xs {
+  margin-bottom: 0.25rem;
+}
+.mt-xs {
+  margin-top: 0.25rem;
+}
+.mb-s {
+  margin-bottom: 0.75rem;
+}
+.mt-s {
+  margin-top: 0.75rem;
+}
+.mb-m {
+  margin-bottom: 1.5rem;
+}
+.mt-m {
+  margin-top: 1.5rem;
+}
+.mb-l {
+  margin-bottom: 2.5rem;
+}
+.mt-l {
+  margin-top: 2.5rem;
+}
+.w-100 {
+  width: 100%;
+}
+.font-serif {
+  font-family: var(--font-family-serif);
+}
+.fs-root {
+  font-size: 1rem;
+}
+.fs-p {
+  font-size: var(--font-size-paragraphs);
+}
+.fw-normal {
+  font-weight: 400;
+}
+@media screen and (min-width: 768px){
+  .text-md-end {
+    text-align: end;
+  }
+}
+
+/* -----------*/

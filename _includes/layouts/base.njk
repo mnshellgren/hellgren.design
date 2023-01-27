@@ -9,9 +9,18 @@
     {#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
     {#- <meta name="generator" content="{{ eleventy.generator }}"> #}
     
-    {% include 'fontFace.html' %}
-  
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    
+    {% set fontcss %}
+      {% include 'fontFace.html' %}
+    {% endset %}
+    {% set maincss %}
+      {% include "css/utilities.css" %}
+      {% include "css/index.css" %}
+    {% endset %}
+    <style>
+      {{ fontcss | cssmin | safe }}
+      {{ maincss | cssmin | safe }}
+    </style>
     <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">

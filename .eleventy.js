@@ -7,6 +7,7 @@ const markdownItAnchor = require("markdown-it-anchor");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const cleanCSS = require("clean-css");
 const Image = require("@11ty/eleventy-img");
 
 async function imageShortcode(src, alt, imgclass) {
@@ -65,6 +66,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("filterTagList", filterTagList)
 
   eleventyConfig.addFilter('values', Object.values);
+
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new cleanCSS({}).minify(code).styles;
+  });
 
   // Create an array of all tags
   eleventyConfig.addCollection("tagList", function(collection) {
