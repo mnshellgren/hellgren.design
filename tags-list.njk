@@ -2,7 +2,9 @@
 permalink: /tags/
 layout: layouts/home.njk
 ---
-<h1>Tags</h1>
+<div class="intro-header">
+    <h1>Tags</h1>
+</div>
 
 {% for tag in collections.tagList %}
   {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
