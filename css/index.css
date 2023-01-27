@@ -117,6 +117,10 @@ main {
   padding: 1rem;
   grid-column: 2;
 }
+footer {
+  min-height: 6rem;
+  grid-column: 2;
+}
 
 table {
   margin: 1em 0;
@@ -338,7 +342,7 @@ code {
 }
 .tmpl-home .postlist-link {
   font-size: 1.1875em; /* 19px /16 */
-  font-weight: 600;
+  font-weight: 550;
 }
 .link-large {
   font-size: 1.5em !important;
