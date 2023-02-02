@@ -6,16 +6,15 @@ eleventyNavigation:
 ---
 
 <div class="intro-header"> 
-  {% image "./src/images/profile.jpg", "photo of me", "profile-img" %}
   <div>
-    <h1 class="m-0 text-md-end">Måns Hellgren</h1>
+    <h1 class="fs-lg mt-s fw-light" >Måns designs user experiences grounded in accessibility.</h1>
 
-    <p class="text-md-end mt-s">UX designer with frontend development flair.</p>
+    <p class="mt-s">Currently UX Designer at Cartina.</p>
   </div>
 </div>
 
 {% set maxPosts = collections.posts.length | min(4) %}
-<h2 class="fs-p fw-normal mt-l">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
+<h2 class="fs-root fw-normal mt-l">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
 
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}

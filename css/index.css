@@ -6,10 +6,20 @@
   --font-family-serif: 'Crimson Pro', serif;
 
   --font-size-paragraphs: 1.125rem;
+  --font-size-h1: 2rem;
+
+  --font-size-lg: 3rem;
 
   --border-radius-base: 6px;
   --border-radius-large: 12px;
   --border-radius-xlarge: 24px;
+}
+
+@media screen and (min-width: 768px){
+  :root {
+    --font-size-h1: 2.5rem;
+    --font-size-lg: 4rem;
+  }
 }
 
 /* Theme colors */
@@ -20,6 +30,7 @@
   --color-gray-90: #333;
 
   --background-color: #fff;
+  --background-color-alt: #f7f7f7;
 
   --color-gradient-base: linear-gradient(90deg, rgba(49,101,179,1) 0%, rgba(0,202,178,1) 100%);
 
@@ -27,6 +38,8 @@
   --text-color-link: #082840;
   --text-color-link-visited: #17050F;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   /*:root {
@@ -64,6 +77,10 @@ p {
   font-size: 1.125rem;
   line-height: 1.5;
 }
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 300;
+}
 
 h2, h3, h4 {
   margin: 1.25em 0 1em 0;
@@ -76,7 +93,13 @@ hr {
 
 .main-wrapper {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto 100% auto;
+}
+@media screen and (min-width: 768px){
+  .main-wrapper {
+    grid-template-columns: auto 768px auto;
+
+  }
 }
 
 @media screen and (min-width: 996px){
@@ -198,6 +221,13 @@ code {
   max-width: 200px;
   object-fit: contain;
   border-radius: var(--border-radius-xlarge);
+  margin: 1rem 0;
+}
+.article-img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: var(--border-radius-base);
+  margin: 1rem 0;
 }
 
 /* ------------------------------ */
@@ -251,6 +281,9 @@ code {
   padding: 4px 8px;
   text-align: right;
 }
+.postlist-item.case:before, .postlist-item.case:before {
+  content: none;
+}
 .postlist-item-large:before {
   display: inline-block;
   pointer-events: none;
@@ -258,7 +291,7 @@ code {
   background: linear-gradient(white, white) padding-box, var(--color-gradient-base) border-box;
   border: solid 1px transparent;
   border-radius: var(--border-radius-large);
-  margin: 0 1.5em 0 0;
+  margin: 0 1em 0 0;
   padding: 32px 40px;
 }
 .postlist-item-large:after {
@@ -281,7 +314,7 @@ code {
   word-spacing: -0.5px;
 }
 .postlist-link {
-  padding-right: .5em;
+  padding: 0 0.5em;
   text-underline-position: from-font;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
@@ -311,7 +344,8 @@ code {
   margin-top: 0.5em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
   color: var(--color-gray-90);
-  border: 1px solid var(--color-gray-50);
+  background: linear-gradient(white, white) padding-box, var(--color-gradient-base) border-box;
+  border: solid 1px transparent;
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
   line-height: 1.8;
