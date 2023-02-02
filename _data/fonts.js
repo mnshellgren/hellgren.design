@@ -18,6 +18,7 @@ const path = require('path');
 
 /** Helper to auto-prefix a font src url with the path to local fonts. */
 const getFontUrl = (src) => path.join('/src/fonts', src);
+const getBuildUrl = (src) => path.join('/fonts', src);
 
 const fonts = {
     body: {
@@ -40,6 +41,7 @@ const fonts = {
           weight: '1 999',
           style: FontStyle.NORMAL,
           url: getFontUrl('PublicSans-VariableFont_wght.woff2'),
+          buildUrl: getBuildUrl('PublicSans-VariableFont_wght.woff2'),
           display: FontDisplay.SWAP,
         }
       },
@@ -53,6 +55,7 @@ const fonts = {
           weight: 500,
           style: FontStyle.NORMAL,
           url: getFontUrl('CrimsonPro-Medium.woff2'),
+          buildUrl: getBuildUrl('CrimsonPro-Medium.woff2'),
           display: FontDisplay.SWAP,
         }
       },

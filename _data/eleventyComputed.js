@@ -3,7 +3,7 @@ module.exports = {
         {
             as: "font",
             type: "font/woff2",
-            href: "{{ fonts.body.weights.regular.url }}",
+            href: "{{ fonts.body.weights.regular.buildUrl }}",
             crossorigin: true
         }
     ]
