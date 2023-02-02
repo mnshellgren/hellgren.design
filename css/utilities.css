@@ -1,0 +1,113 @@
+
+/* Utilities */
+.m-0 {
+  margin: 0;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mt-0 {
+  margin-top: 0 !important;
+}
+.mb-xs {
+  margin-bottom: 0.25rem;
+}
+.mt-xs {
+  margin-top: 0.25rem;
+}
+.mb-s {
+  margin-bottom: 0.75rem;
+}
+.mt-s {
+  margin-top: 0.75rem;
+}
+.mb-m {
+  margin-bottom: 1.5rem;
+}
+.mt-m {
+  margin-top: 1.5rem;
+}
+.mb-l {
+  margin-bottom: 2.5rem;
+}
+.mt-l {
+  margin-top: 2.5rem;
+}
+.w-100 {
+  width: 100%;
+}
+.font-serif {
+  font-family: var(--font-family-serif);
+}
+.fs-root {
+  font-size: 1rem;
+}
+.fs-p {
+  font-size: var(--font-size-paragraphs);
+}
+.fs-lg {
+  font-size: var(--font-size-lg);
+}
+.fw-normal {
+  font-weight: 400;
+}
+.fw-light {
+  font-weight: 300;
+}
+@media screen and (min-width: 768px){
+  .text-md-end {
+    text-align: end;
+  }
+}
+
+/* -----------*/
+
+/* display */
+.d-block {
+  display: block;
+}
+/* --------*/
+
+
+/* ----- CSS grid utilities  ------*/
+.grid-2 {
+  display: grid;
+  grid-template-columns: 650px auto;
+}
+.grid-2 * {
+  grid-column: 1;
+}
+.g-col-1 {
+  grid-column: 1;
+}
+.g-col-2 {
+  grid-column: 2;
+}
+.g-col-3 {
+  grid-column: 3;
+}
+
+/*  flexbox  */
+.flex {
+  display: flex;
+}
+
+.f-c {
+  flex-direction: column;
+}
+
+.r-reverse {
+  flex-direction: row-reverse;
+}
+.c-reverse {
+  flex-direction: column-reverse;
+}
+.j-space-between {
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 996px){
+  .flex-lg {
+    display: flex;
+  }
+}

@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-post
+---
+<div class="intro-header">
+    <h1>{{ title }}</h1>
+</div>
+
+
+<time class="postlist-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+{%- for tag in tags | filterTagList %}
+{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+{%- endfor %}
+
+{{ content | safe }}
+
+{%- if collections.posts %}
+{%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+{%- if nextPost or previousPost %}
+<hr>
+<ul class="nav">
+  {%- if nextPost %}<li class="mb-s">Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+  {%- if previousPost %}<li class="mb-s">Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+</ul>
+{%- endif %}
+{%- endif %}

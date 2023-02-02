@@ -1,0 +1,25 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+<div class="intro-header"> 
+  <div>
+    <h1 class="fs-lg mt-s fw-light" >Måns designs user experiences grounded in accessibility.</h1>
+
+    <p class="mt-s">Currently UX Designer at Cartina.</p>
+  </div>
+</div>
+
+{% set maxPosts = collections.posts.length | min(4) %}
+<h2 class="fs-root fw-normal mt-l">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h2>
+
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+{% set caselist = collections.work | head(-3) %}
+{% set caselistCounter = collections.work | length %}
+{% include "postslist.njk" %}
+
+<p class="fs-root">More writings can be found in <a href="{{ '/posts/' | url }}">reflections</a>.</p>
