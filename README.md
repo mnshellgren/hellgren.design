@@ -1,3 +1,3 @@
-# Hellgren Design
+# Hellgren.Design
 
 My personal website.
